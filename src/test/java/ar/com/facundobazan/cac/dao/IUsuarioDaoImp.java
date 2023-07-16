@@ -10,34 +10,34 @@ import java.util.List;
 
 @Repository //  Permite la conexion a la db
 @Transactional  //  Permite armar las consultas sql a la db
-public class UsuarioDaoImp implements UsuarioDao{
+public class IUsuarioDaoImp implements IUsuarioDao {
 
     @PersistenceContext
     EntityManager entityManager;
 
     @Override
-    public List<Usuario> getUsuarios() {
+    public List<Usuario> getAll()  {
         String query = "FROM Usuario";
         return entityManager.createNamedQuery(query).getResultList();
     }
 
     @Override
-    public Usuario getUsuario(Integer id) {
+    public Usuario find(String id) {
         return null;
     }
 
     @Override
-    public Usuario addUsuario() {
+    public Usuario add(Usuario usuario) {
         return null;
     }
 
     @Override
-    public Boolean editUsuario() {
+    public Boolean edit(Usuario usuario) {
         return null;
     }
 
     @Override
-    public Boolean deleteUsuario() {
+    public Boolean delete(String id) {
         return null;
     }
 }
