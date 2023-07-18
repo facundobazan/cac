@@ -1,0 +1,72 @@
+.navbar {
+  grid-area: navbar;
+  height: 100%;
+  font-size: 1.2rem;
+  background: #373d42;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.navbar>div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navbar-logo {
+  flex-basis: 100px;
+  align-content: flex-end;
+}
+
+.logo-img>img {
+  height: 80px;
+  cursor: pointer;
+}
+
+.navbar-link>ul {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+}
+
+.link-item>a {
+  color: #87949a;
+}
+
+.link-item:first-child>a {
+  color: white;
+}
+
+.link-item:last-child>a {
+  color: #0a8c4d;
+}
+
+a:hover {
+  color: #0a8c4d;
+}
+
+.toggle-menu {
+  position: absolute;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (min-width: 940px) {
+  .toggle-menu {
+    display:contents;
+  }
+}
+
+.toggle-menu:hover {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-menu>img {
+  filter: invert(1);
+}

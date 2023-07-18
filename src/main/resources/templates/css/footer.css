@@ -1,0 +1,18 @@
+.footer {
+    grid-area: footer;
+    background: #153b47;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    box-sizing: border-box;
+    text-align: center;
+    align-self: center;
+    color: white;
+    width: 70px;
+    font-size: .8rem;
+}

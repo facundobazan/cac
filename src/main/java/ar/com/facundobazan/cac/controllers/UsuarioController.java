@@ -1,7 +1,7 @@
 package ar.com.facundobazan.cac.controllers;
 
-import ar.com.facundobazan.cac.dao.IUsuarioDao;
 import ar.com.facundobazan.cac.entities.Usuario;
+import ar.com.facundobazan.cac.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,30 +11,30 @@ import java.util.List;
 public class UsuarioController {
 
     @Autowired
-    private IUsuarioDao IUsuarioDao;
+    private IUsuarioService iUsuarioService;
 
     @GetMapping(value = "usuarios")
     public List<Usuario> getAll(){
-        return IUsuarioDao.getAll();
+        return iUsuarioService.getAll();
     }
 
     @GetMapping(value = "usuarios/{id}")
-    public String getOne(@PathVariable String id){
-        return "Hola";
+    public Usuario getOne(@PathVariable String id){
+        return iUsuarioService.find(Integer.valueOf(id));
     }
 
     @PostMapping(value = "usuarios")
     public Usuario addUsuario(@RequestBody Usuario usuario){
-        return usuario;
+        return iUsuarioService.add(usuario);
     }
 
     @PutMapping(value = "usuarios")
-    public Boolean editUsuario(@RequestBody Usuario usuario){
-        return usuario == null;
+    public void editUsuario(@RequestBody Usuario usuario){
+        iUsuarioService.edit(usuario);
     }
 
     @DeleteMapping(value = "usuarios/{id}")
-    public Boolean deleteUsuario(@PathVariable String id){
-        return Integer.valueOf(id) < 0;
+    public void deleteUsuario(@PathVariable String id){
+        iUsuarioService.remove(Integer.valueOf(id));
     }
 }

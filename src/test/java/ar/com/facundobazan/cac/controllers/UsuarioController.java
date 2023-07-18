@@ -1,6 +1,6 @@
 package ar.com.facundobazan.cac.controllers;
 
-import ar.com.facundobazan.cac.dao.IUsuarioDao;
+import ar.com.facundobazan.cac.services.IUsuarioService;
 import ar.com.facundobazan.cac.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +12,10 @@ import java.util.*;
 public class UsuarioController {
 
     @Autowired
-    private IUsuarioDao IUsuarioDao;
+    private IUsuarioService IUsuarioService;
 
     @RequestMapping(value="usuarios")
     public List<Usuario> getAll(){
-        return IUsuarioDao.getAll();
+        return IUsuarioService.getAll();
     }
 }
